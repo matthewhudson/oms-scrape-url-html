@@ -11,5 +11,6 @@ before_install:
 script:
   - npx omg build
   - |
-    output="$(npx omg run --raw message -a name="World" | jq -c .)"
-    if [ "$output" != '{"message":"Hello World"}' ] ; then echo "$output"; exit 1; fi
+    control="$(curl https://httpbin.org/html)"
+    output="$(npx omg run --raw scrape -a url="https://httpbin.org/html" | jq -c .)"
+    if [ "$output" != '{"html":"$control"}' ] ; then echo "$output"; exit 1; fi
