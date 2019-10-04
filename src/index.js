@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 8080;
 
-app.post("/scrape", async (req, res) => {
+app.post("/scrape-url-html", async (req, res) => {
   const { url, session = null } = req.body;
 
   // @TODO: This handler should be the main responsibility in this file,

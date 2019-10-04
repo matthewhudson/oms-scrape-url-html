@@ -16,7 +16,10 @@
     "url": "https://github.com/microservices/node/issues"
   },
   "homepage": "https://github.com/microservices/node#readme",
-  "keywords": [],
+  "keywords": [
+    "microservice",
+    "oms"
+  ],
   "dependencies": {
     "axios": "^0.19.0",
     "body-parser": "1.19.0",

@@ -20,7 +20,7 @@ health:
 actions:
   scrape:
     http:
-      path: /scrape
+      path: /scrape-url-html
       method: post
       port: 8080
     arguments:
