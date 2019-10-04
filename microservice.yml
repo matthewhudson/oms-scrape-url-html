@@ -1,0 +1,40 @@
+omg: 1
+
+info:
+  version: 1.0.0
+  title: Scrape URL HTML
+  description: Retrieve the fully rendered HTML content via Scraper API.
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+lifecycle:
+  startup:
+    command: ['node', '/app/src/index.js']
+
+health:
+  http:
+    path: /health
+    port: 8080
+
+actions:
+  scrape:
+    http:
+      path: /scrape
+      method: post
+      port: 8080
+    arguments:
+      url:
+        type: string
+        required: true
+        in: requestBody
+      session:
+        type: string
+        required: false
+        in: requestBody
+    output:
+      contentType: application/json
+      type: object
+      properties:
+        message:
+          type: string
