@@ -34,7 +34,11 @@ actions:
         in: requestBody
     output:
       contentType: application/json
-      type: object
+      type: map
       properties:
-        message:
+        html:
           type: string
+          required: false
+        error:
+          type: string
+          required: false
