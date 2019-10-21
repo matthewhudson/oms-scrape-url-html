@@ -38,7 +38,5 @@ actions:
       properties:
         html:
           type: string
-          required: false
         error:
           type: string
-          required: false

@@ -11,7 +11,7 @@ Latest LTS version of Node.js 10.
 [See Releases](https://nodejs.org/en/about/releases/).
 
 ```sh
-yarn
+npm i
 ```
 
 First, install the [Commitizen cli](https://github.com/commitizen/cz-cli) tools:
@@ -30,7 +30,7 @@ commitizen init cz-conventional-changelog --yarn --dev --exact
 Use the following to replace `git commit`:
 
 ```sh
-yarn run commit
+npm run commit
 ```
 
 ## Test
@@ -38,12 +38,12 @@ yarn run commit
 ## OMS Test Runner
 
 ```sh
-> omg run message -a name=Service
+> omg run scrape -a url=https://httpbin.org/html
 ℹ Building Docker image
 …
 ✔ Built Docker image with name: omg/l2hvbwuvc2vil2fzew5jes9ydwj5
 ✔ Started Docker container: 1c8a91688261
 ✔ Health check passed
-✔ Ran action: `message` with output: {"message":"Hello Service"}
+✔ Ran action: `scrape` with output: ...
 ✔ Stopped Docker container: 1c8a91688261
 ```

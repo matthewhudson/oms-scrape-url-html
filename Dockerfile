@@ -1,8 +1,8 @@
 FROM        node:10-alpine
 
 RUN         mkdir /app
-ADD         package.json package-lock.json /app/
-RUN         npm install --prefix /app
+COPY        .env package.json package-lock.json /app/
 COPY        src /app/src
+RUN         npm install --prefix /app
 
 ENTRYPOINT  ["node", "/app/src/index.js"]
