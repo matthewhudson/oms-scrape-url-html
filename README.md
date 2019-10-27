@@ -7,7 +7,7 @@ An OMS template for NodeJS + ExpressJS.
 
 ## Setup
 
-Latest LTS version of Node.js 10.
+MakLatest LTS version of Node.js 10.
 [See Releases](https://nodejs.org/en/about/releases/).
 
 ```sh
@@ -33,15 +33,23 @@ Use the following to replace `git commit`:
 npm run commit
 ```
 
-## Test
+## Example Usage
 
-## OMS Test Runner
+Call the service from your terminal:
 
-```sh
-> omg run scrape -a url=https://httpbin.org/html
+``` sh
+oms run scrape \
+  -a url=https://httpbin.org/html \
+  -e SCRAPER_API_ORIGIN=http://api.scraperapi.com \
+  -e SCRAPER_API_KEY=XXXXXXXXXXXXXXXXXXXXX
+```
+
+And you should see output that looks like the following:
+
+```
 ℹ Building Docker image
 …
-✔ Built Docker image with name: omg/l2hvbwuvc2vil2fzew5jes9ydwj5
+✔ Built Docker image with name: oms/matthewhudson/oms-scrape-url-html
 ✔ Started Docker container: 1c8a91688261
 ✔ Health check passed
 ✔ Ran action: `scrape` with output: ...

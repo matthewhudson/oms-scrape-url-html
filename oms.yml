@@ -1,4 +1,4 @@
-omg: 1
+oms: 1
 
 info:
   version: 1.0.0
@@ -35,8 +35,13 @@ actions:
     output:
       contentType: application/json
       type: map
-      properties:
-        html:
-          type: string
-        error:
-          type: string
+
+environment:
+  SCRAPER_API_KEY:
+    type: string
+    required: true
+    help: API Key provided by ScraperAPI
+  SCRAPER_API_ORIGIN:
+    type: string
+    required: true
+    help: API URL provided by ScraperAPI
