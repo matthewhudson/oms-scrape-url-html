@@ -19,6 +19,7 @@ health:
 
 actions:
   scrape:
+    help: Retrieve the fully rendered HTML content via Scraper API.
     http:
       path: /scrape-url-html
       method: post
@@ -28,10 +29,12 @@ actions:
         type: string
         required: true
         in: requestBody
+        help: The target URL to scrape.
       session:
         type: string
         required: false
         in: requestBody
+        help: Any random integer. Allows you to continue using the same proxy for each request with that session number. Send a new integer to create a new session.
     output:
       contentType: application/json
       type: map
