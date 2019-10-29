@@ -42,9 +42,9 @@ actions:
 environment:
   SCRAPER_API_KEY:
     type: string
-    required: true
+    default: true
     help: API Key provided by ScraperAPI
   SCRAPER_API_ORIGIN:
     type: string
-    required: true
+    default: http://api.scraperapi.com
     help: API URL provided by ScraperAPI
