@@ -12,7 +12,7 @@ script:
   -a url="https://oms.hudson.dev/fixtures/html5-bare-minimum.html" \
   -e SCRAPER_API_KEY=$SCRAPER_API_KEY \
   -e SCRAPER_API_ORIGIN=$SCRAPER_API_ORIGIN | jq -c .)"
-  if [ "$output" != '<!DOCTYPE html><title>hello</title>' ] ; then echo "$output"; exit 1; fi
+  if [ "$output" != '{"html":"<!DOCTYPE html><title>hello</title>\n"}' ] ; then echo "$output"; exit 1; fi
 env:
   global:
   - secure: Ebo6cwD5VstKir5fCBR4vVTBLlIDP0YUv6FD+Clfm76kCoxcKSHangFIXd8iVItCXtpCuFzFMGQm5jlWwAiX12RKcEmctUXmc9oDzjmXPV7R2PQAdV9h4OPKZ/ahigIV9ovnmsuzgCjoBNk1c/G6HZlfsepLcvmbvrnZIyoIE2S4Ty8KJkgZuZS6u+I9lfeZ65OZMtHpPy3VVsearT44rRsV5kM1tPQkKSjZBFO2VIzOP/172KXLkG6c78gbXjy0Veq0aT1rdnPqOZOpqXOXMsXlj82bpkbYPGPiYJCxASzIeWY7YBM7iXMJ71gsHyuSY6CncZzV9zxpDTla9KbLjYxkIYgeKjeINNTFHK76x3+0D8fgz6aGSo/0Axx8OrwtsFp2s+kKJCk9V4aOdqsP0iA1WstFX4vOXiXeoQTD4ZDedAUBD5Trpk6XDa9dtHe0h4j1Soh2FOdMJ+LdIie1C+G977K00XhCMRz0OWlgG1wBWvcxEzfcLauJFQMexINKi8rfzfVEp6k1Cw7UA6MQ8zZw1clvLU/TbNKPZQcmW9AdAS4OtkZ3nWaWAiTVQEQ29/UUk+QQpyC9P+0KxAxfpF1MDjoVvN50zFds66QDrTlHqJ/aSEXJaOh0wau+zkFWFkrvzQ6FX/HRiv9Wx3HqvLrGNRiGKoAgj/ySX0OkwAo=
