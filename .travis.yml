@@ -1,16 +1,19 @@
 language: node_js
 node_js:
-  - '10'
-
+- '10'
 services:
-  - docker
-
+- docker
 before_install:
-  - npm i omg
-
+- npm i @microservices/oms
 script:
-  - npx omg build
-  - |
-    control="$(curl https://httpbin.org/html)"
-    output="$(npx omg run --raw scrape -a url="https://httpbin.org/html" | jq -c .)"
-    if [ "$output" != '{"html":"$control"}' ] ; then echo "$output"; exit 1; fi
+- npx oms build
+- |
+  output="$(npx oms run --silent parse \
+  -a url="https://oms.hudson.dev/fixtures/html5-bare-minimum.html" \
+  -e SCRAPER_API_KEY=$SCRAPER_API_KEY \
+  -e SCRAPER_API_ORIGIN=$SCRAPER_API_ORIGIN | jq -c .)"
+  if [ "$output" != '<!DOCTYPE html><title>hello</title>' ] ; then echo "$output"; exit 1; fi
+env:
+  global:
+  - secure: Ebo6cwD5VstKir5fCBR4vVTBLlIDP0YUv6FD+Clfm76kCoxcKSHangFIXd8iVItCXtpCuFzFMGQm5jlWwAiX12RKcEmctUXmc9oDzjmXPV7R2PQAdV9h4OPKZ/ahigIV9ovnmsuzgCjoBNk1c/G6HZlfsepLcvmbvrnZIyoIE2S4Ty8KJkgZuZS6u+I9lfeZ65OZMtHpPy3VVsearT44rRsV5kM1tPQkKSjZBFO2VIzOP/172KXLkG6c78gbXjy0Veq0aT1rdnPqOZOpqXOXMsXlj82bpkbYPGPiYJCxASzIeWY7YBM7iXMJ71gsHyuSY6CncZzV9zxpDTla9KbLjYxkIYgeKjeINNTFHK76x3+0D8fgz6aGSo/0Axx8OrwtsFp2s+kKJCk9V4aOdqsP0iA1WstFX4vOXiXeoQTD4ZDedAUBD5Trpk6XDa9dtHe0h4j1Soh2FOdMJ+LdIie1C+G977K00XhCMRz0OWlgG1wBWvcxEzfcLauJFQMexINKi8rfzfVEp6k1Cw7UA6MQ8zZw1clvLU/TbNKPZQcmW9AdAS4OtkZ3nWaWAiTVQEQ29/UUk+QQpyC9P+0KxAxfpF1MDjoVvN50zFds66QDrTlHqJ/aSEXJaOh0wau+zkFWFkrvzQ6FX/HRiv9Wx3HqvLrGNRiGKoAgj/ySX0OkwAo=
+  - secure: HSPif2z7BcKSkqxrD8a5tbpgH6lzRFteXCBsYIPjgn2U8cuOjbHoSdclTusszxednCmFfpKc6ON1cPE3TJKfPzQ2Ww3uYsmjm6Z6v53THyDy6afSDZmr1snxn+oUhDe0ZO/qdm02SXFPcWiW5i93VQT2NE/1D0fTrsI1uvwm9NV1ONGJJHcvp+v/FEeCcxI4BHt0Z49TyrfC+12j2RuQ915PzZgYCWYY+0c9NLG7kgYgQrETYpUuvqaqQBqSwkIN4GgTyiY2oMQLFrG3DX1+0C+hEEjuob+3kFMJ8rI3VZM7Iqha6CCGPR7GtOLQKxwYKKBJs+vYWYLq7nm9zy6lpH4RtqCXoV3ptHJwo4ViQHNbZKMr7tDmbXPRyKDhaeTj1o/Vj4zQ7X7hX1KXKoJP8M3NzuPP2Xl7c8z8kf7LAnMEFuYRp9NeDYTiZ/rrHHyR/im7ol1/e1jYVa5GJhRIR7E+XdZ4PPtM/EFVxZz3lHwp9sbZ380+yNRsjazloNhGNQM/4a/NLXKplc0DSfI7MO8jhHycW3QNVs1fbCP74Oz0M+vIS51Csq1BcwiEsnQKTUiSdkuvPak3iK2Ve+QHUnEj0keTnQzvHCTQ0CqHuguM3DOaDoy6KzyHQpij3STt7prd6s5ev3/6N9znwITX02OSa3/2ZohxD1rK9xgys4o=

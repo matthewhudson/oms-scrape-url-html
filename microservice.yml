@@ -42,7 +42,7 @@ actions:
 environment:
   SCRAPER_API_KEY:
     type: string
-    default: true
+    required: true
     help: API Key provided by ScraperAPI
   SCRAPER_API_ORIGIN:
     type: string
