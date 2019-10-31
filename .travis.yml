@@ -8,7 +8,7 @@ before_install:
 script:
 - npx oms build
 - |
-  output="$(npx oms run --silent parse \
+  output="$(npx oms run --silent scrape \
   -a url="https://oms.hudson.dev/fixtures/html5-bare-minimum.html" \
   -e SCRAPER_API_KEY=$SCRAPER_API_KEY \
   -e SCRAPER_API_ORIGIN=$SCRAPER_API_ORIGIN | jq -c .)"
